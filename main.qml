@@ -13,32 +13,57 @@ Window {
     color: "#503929"
     title: qsTr("Home Page")
 
-    Text {
-        x: 0
-        y: 0
-        text: "what's up"
-    }
-
     Image {
         id: dashed_lines
-        x: 35
-        y: 37
-        source: "Images/Home Page Dashed Lines.png"
-        width: 255//1010
-        height: 570//2270
+        x: 11.5
+        y: 11.5
+        source: "Home_Page_Dashed_Lines.png"
+        width: 388//1010
+        height: 868//2270
         sourceSize.width: 1020
         sourceSize.height: 2280
         //scale: scaleCtx.scale
         fillMode: Image.PreserveAspectFit
     }
+
+    Image {
+        id: randomImg
+        x: 100
+        y: 100
+        source: "Untitled.png"
+        height:132
+        width:132
+        sourceSize.height:132
+        sourceSize.width:132
+    }
+
     Rectangle {
-                id: rectangle
-                x: 6
-                y: 116
-                width: 399
-                height: 97
-                color: "#ffffff"
-            }
+        id: rectangle
+        x: 6
+        y: 116
+        width: 399
+        height: 97
+        color: "#ffffff"
+
+        Text {
+            text: "Sup dude hope this fits"
+            width: 399
+            height: 97
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 10
+            font.pixelSize: 600
+        }
+    }
+
+    /* TODO Reference this text (bounded by a rectangle/box
+    Text {
+        text: "Sup dude hope this fits"
+        width: 399
+        height: 5
+        fontSizeMode: Text.Fit // TODO Reference this text (bounded by a rectangle/box
+        minimumPixelSize: 10
+        font.pixelSize: 600
+    }*/
 
     Text {
         id: welcome_title
@@ -57,64 +82,69 @@ Window {
 
     Rectangle {
         id: search_recipes_rect
-        x: 55
-        y: 1000
-        width: 970
-        height: 320
+        x: 21
+        y: 381
+        width: 369
+        height: 122
         color: "#443322"
-        radius: 125
+        radius: 48
         border.color: "#221100"
-        border.width: 10
-        scale: 0.5
+        border.width: 4
+        //scale: 0.5
+
+        Text {
+            id: search_recipes_txt
+            width: 369
+            height: 122
+            color: "#ffffff"
+            text: qsTr("Search Recipes")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            //scale: 0.5
+            textFormat: Text.RichText
+            font.family: "Verdana"
+            font.bold: true
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 10
+            font.pixelSize: 122
+        }
     }
 
     Rectangle {
         id: add_recipes_rect
-        x: 55
-        y: 1500
-        width: 970
-        height: 320
+        x: 21
+        y: 571
+        width: 369
+        height: 122
         color: "#443322"
-        radius: 125
+        radius: 48
         border.color: "#221100"
-        border.width: 10
-        scale: 0.5
+        border.width: 4
+        //scale: 0.5
+
+        Text {
+            id: add_recipes_txt
+            width: 369
+            height: 122
+            color: "#ffffff"
+            text: qsTr("Add Recipes")
+            // TODO
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            //scale: 0.5
+            //textFormat: Text.RichText
+            //font.family: "Verdana"
+            //font.bold: true
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 10
+            font.pixelSize: 122
+        }
     }
 
-    Text {
-        id: search_recipes_txt
-        x: 55
-        y: 1000
-        width: 970
-        height: 320
-        color: "#ffffff"
-        text: qsTr("Search Recipes")
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        scale: 0.5
-        font.bold: true
-        font.pointSize: 64
-        font.family: "Verdana"
-        textFormat: Text.RichText
-    }
 
-    Text {
-        id: add_recipes_txt
-        x: 55
-        y: 1500
-        width: 970
-        height: 320
-        color: "#ffffff"
-        text: qsTr("Add Recipes")
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
-        scale: 0.5
-        font.family: "Verdana"
-        font.bold: true
-        font.pointSize: 64
-        textFormat: Text.RichText
-    }
 
+
+/*
     Text {
         id: welcome_title2
         x: -207
@@ -172,7 +202,7 @@ Window {
         font.family: "Verdana"
         scale: 0.5
         textFormat: Text.RichText
-    }
+    }*/
 }
 
 /*##^##

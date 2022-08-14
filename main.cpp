@@ -34,6 +34,11 @@ int main(int argc, char *argv[])
 
 
 
+    // TODO Include QOCIDriver so that I can interface with the Oracle Cloud Interface (OCI)
+    //      https://doc.qt.io/qt-6/qsqldatabase.html#registerSqlDriver
+
+
+
     qreal ratio = QGuiApplication::primaryScreen()->devicePixelRatio();
     QRect rect = QGuiApplication::primaryScreen()->geometry();
 
@@ -44,5 +49,7 @@ int main(int argc, char *argv[])
 
     qDebug() << "----------------------------------------------------------------------------------------------------------------------------------------" << height;
     qDebug() << "----------------------------------------------------------------------------------------------------------------------------------------" << width;
+
+
     return app.exec();
 }

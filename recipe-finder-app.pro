@@ -6,10 +6,12 @@ SOURCES += \
         contextobject.cpp \
         main.cpp
 
-resources.files = main.qml 
+resources.files = \
+        main.qml \
+        Untitled.png \
+        Home_Page_Dashed_Lines.png
 resources.prefix = /$${TARGET}
-RESOURCES += resources \
-    Images/images.qrc
+RESOURCES += resources
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

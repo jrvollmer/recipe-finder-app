@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Untitled.png</file>
+        <file>main.qml</file>
+        <file>Home_Page_Dashed_Lines.png</file>
+    </qresource>
+</RCC>
