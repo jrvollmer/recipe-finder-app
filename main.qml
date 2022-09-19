@@ -7,7 +7,7 @@ import QtQuick.Controls 2.12
 Window {
     id: root
     width: 411
-    height: 891
+    height: 914
     visible: true
     visibility: "FullScreen"
     color: "#503929"
@@ -18,10 +18,10 @@ Window {
         x: 11.5
         y: 11.5
         source: "Home_Page_Dashed_Lines.png"
-        width: 388//1010
-        height: 868//2270
+        width: 389
+        height: 891
         sourceSize.width: 1020
-        sourceSize.height: 2280
+        sourceSize.height: 2340
         //scale: scaleCtx.scale
         fillMode: Image.PreserveAspectFit
     }
