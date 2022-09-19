@@ -20,9 +20,15 @@ QML_IMPORT_PATH =
 QML_DESIGNER_IMPORT_PATH =
 
 # Default rules for deployment.
+android: include(C:\Users\james\QtProjects\recipe-finder-app\android_openssl\openssl.pri)
+
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
     contextobject.h
+
+DISTFILES += \
+    HomePage.qml \
+    HomePageForm.ui.qml
