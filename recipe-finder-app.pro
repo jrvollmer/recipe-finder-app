@@ -3,7 +3,6 @@ QT += quick
 CONFIG += c++11
 
 SOURCES += \
-        contextobject.cpp \
         main.cpp
 
 resources.files = \
@@ -26,8 +25,7 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS += \
-    contextobject.h
+HEADERS +=
 
 DISTFILES += \
     HomePage.qml \

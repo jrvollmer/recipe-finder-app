@@ -3,7 +3,7 @@
 #include <QQmlContext>
 #include <QRect>
 #include <QScreen>
-#include "contextobject.h"
+#include <QQmlPropertyMap>
 
 // TODO For database actions
 #include <QUrlQuery>
@@ -19,13 +19,19 @@ int main(int argc, char *argv[])
         argv[1] = (char*)"--platform";
         argv[2] = (char*)"android:dpiawareness=0";
 */
+
+    // Set up a scale context variable to be used in the front end
+    QQmlPropertyMap uiProps;
+    uiProps.insert("scale", QVariant(1/2.625));
+
+
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     QQmlContext * rootContext = engine.rootContext();
-    ContextObject ctxt = ContextObject(1);
 
-    rootContext->setContextProperty("scaleCtx", &ctxt);
+    // Add scale property as a context property for the front end
+    rootContext->setContextProperty("uiCtxt", &uiProps);
     const QUrl url(u"qrc:/recipe-finder-app/main.qml"_qs);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
