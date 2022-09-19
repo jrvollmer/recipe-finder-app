@@ -5,6 +5,13 @@
 #include <QScreen>
 #include "contextobject.h"
 
+// TODO For database actions
+#include <QUrlQuery>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
+
+
 int main(int argc, char *argv[])
 {
     /*argc = 3;
@@ -36,6 +43,27 @@ int main(int argc, char *argv[])
 
     // TODO Include QOCIDriver so that I can interface with the Oracle Cloud Interface (OCI)
     //      https://doc.qt.io/qt-6/qsqldatabase.html#registerSqlDriver
+
+
+    // TODO Insert data via a REST API call
+    QUrlQuery querystr;
+    querystr.addQueryItem("field1","Wazzup");
+    querystr.addQueryItem("field2",QString::fromStdString(std::to_string(1)));
+
+    QUrl myurl;
+    myurl.setScheme("https");
+    myurl.setHost("***REMOVED***");
+    myurl.setPath("/ords/admin/test-select/api/add-row-1");
+    myurl.setQuery(querystr);
+
+    QNetworkRequest request;
+    request.setUrl(myurl);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    QNetworkAccessManager *restclient; //in class
+    restclient = new QNetworkAccessManager(); //constructor
+    QNetworkReply *reply = restclient->get(request);
+    qDebug() << reply->readAll();
 
 
 
