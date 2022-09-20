@@ -4,13 +4,7 @@
 #include <QRect>
 #include <QScreen>
 #include <QQmlPropertyMap>
-
-// TODO For database actions
-#include <QUrlQuery>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QNetworkAccessManager>
-
+#include "databaseactions.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,6 +17,8 @@ int main(int argc, char *argv[])
     // Set up a scale context variable to be used in the front end
     QQmlPropertyMap uiProps;
     uiProps.insert("scale", QVariant(1/2.625));
+    // Declare a DatabaseActions instance to use as a context property for the front end
+    DatabaseActions dbActions;
 
 
     QGuiApplication app(argc, argv);
@@ -30,6 +26,8 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
     QQmlContext * rootContext = engine.rootContext();
 
+    // Add database actions as a context property that the front end can utilize
+    rootContext->setContextProperty("dbActions", &dbActions);
     // Add scale property as a context property for the front end
     rootContext->setContextProperty("uiCtxt", &uiProps);
     const QUrl url(u"qrc:/recipe-finder-app/main.qml"_qs);
@@ -44,33 +42,6 @@ int main(int argc, char *argv[])
 
     //QGuiApplication::primaryScreen()->geometry().setHeight(2340);
     //QGuiApplication::primaryScreen()->geometry().setWidth(1080);
-
-
-
-    // TODO Include QOCIDriver so that I can interface with the Oracle Cloud Interface (OCI)
-    //      https://doc.qt.io/qt-6/qsqldatabase.html#registerSqlDriver
-
-
-    // TODO Insert data via a REST API call
-    QUrlQuery querystr;
-    querystr.addQueryItem("field1","Wazzup");
-    querystr.addQueryItem("field2",QString::fromStdString(std::to_string(1)));
-
-    QUrl myurl;
-    myurl.setScheme("https");
-    myurl.setHost("***REMOVED***");
-    myurl.setPath("/ords/admin/test-select/api/add-row-1");
-    myurl.setQuery(querystr);
-
-    QNetworkRequest request;
-    request.setUrl(myurl);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-
-    QNetworkAccessManager *restclient; //in class
-    restclient = new QNetworkAccessManager(); //constructor
-    QNetworkReply *reply = restclient->get(request);
-    qDebug() << reply->readAll();
-
 
 
     qreal ratio = QGuiApplication::primaryScreen()->devicePixelRatio();

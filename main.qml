@@ -12,7 +12,7 @@ Window {
     title: qsTr("Home Page")
 
     Text {
-        id: welcome
+        id: welcome_txt
         x: 308 * uiCtxt.scale
         y: 462 * uiCtxt.scale
         width: 463 * uiCtxt.scale
@@ -28,7 +28,7 @@ Window {
     }
 
     Text {
-        id: title
+        id: title_txt
         x: 85 * uiCtxt.scale
         y: 573 * uiCtxt.scale
         width: 910 * uiCtxt.scale
@@ -105,7 +105,7 @@ Window {
 
         TapHandler { // TODO
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: console.log("Tapped Add Recipes")
+            onTapped: dbActions.addData("Name1", 2)//console.log("Tapped Add Recipes")
             onLongPressed: console.log("Long Pressed Add Recipes")
         }
     }

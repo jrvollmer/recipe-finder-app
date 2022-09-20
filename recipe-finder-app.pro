@@ -3,6 +3,7 @@ QT += quick
 CONFIG += c++11
 
 SOURCES += \
+        databaseactions.cpp \
         main.cpp
 
 resources.files = \
@@ -25,7 +26,8 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-HEADERS +=
+HEADERS += \
+    databaseactions.h
 
 DISTFILES += \
     HomePage.qml \
