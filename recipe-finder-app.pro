@@ -8,6 +8,7 @@ SOURCES += \
 
 resources.files = \
         main.qml \
+        HomePage.qml \
         Untitled.png \
         Home_Page_Dashed_Lines.png
 resources.prefix = /$${TARGET}
@@ -30,5 +31,4 @@ HEADERS += \
     databaseactions.h
 
 DISTFILES += \
-    HomePage.qml \
-    HomePageForm.ui.qml
+    HomePage.qml
