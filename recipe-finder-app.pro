@@ -9,8 +9,9 @@ SOURCES += \
 resources.files = \
         main.qml \
         HomePage.qml \
-        Untitled.png \
-        Home_Page_Dashed_Lines.png
+        AddRecipe.qml \
+        Images/Home_Page_Dashed_Lines.png \
+        Images/Home_Icon.png
 resources.prefix = /$${TARGET}
 RESOURCES += resources
 
@@ -31,4 +32,5 @@ HEADERS += \
     databaseactions.h
 
 DISTFILES += \
+    AddRecipe.qml \
     HomePage.qml

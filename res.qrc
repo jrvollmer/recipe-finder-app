@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
-        <file>Untitled.png</file>
         <file>main.qml</file>
-        <file>Home_Page_Dashed_Lines.png</file>
+        <file>HomePage.qml</file>
+        <file>AddRecipe.qml</file>
+        <file>Images/Home_Icon.png</file>
+        <file>Images/Home_Page_Dashed_Lines.png</file>
     </qresource>
 </RCC>

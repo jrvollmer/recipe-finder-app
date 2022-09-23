@@ -1,9 +1,26 @@
 import QtQuick 2.15
+import QtQuick.Controls 2.15
 
-Item {
+ApplicationWindow {
     id: home_page
     width: 1080 * uiCtxt.scale
     height: 2400 * uiCtxt.scale
+    color: "#503929"
+    visible: true
+    visibility: "FullScreen"
+    title: qsTr("Home Page")
+
+    function openAddRecipes() {
+        // Create AddRecipe component and object
+        var addRecipeComponent = Qt.createComponent("AddRecipe.qml")
+        var addRecipeWindow = addRecipeComponent.createObject()
+
+        // Display AddRecipe window
+        addRecipeWindow.showFullScreen()
+        // Close current window (HomePage)
+        home_page.close()
+    }
+
 
     Text {
         id: welcome_txt
@@ -99,7 +116,7 @@ Item {
 
         TapHandler { // TODO
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: dbActions.addData("Name1", 2)//console.log("Tapped Add Recipes")
+            onTapped: openAddRecipes()// dbActions.addData("Name1", 2)//console.log("Tapped Add Recipes")
             onLongPressed: console.log("Long Pressed Add Recipes")
         }
     }
@@ -108,7 +125,7 @@ Item {
         id: dashed_lines
         x: 30 * uiCtxt.scale
         y: 30 * uiCtxt.scale
-        source: "Home_Page_Dashed_Lines.png"
+        source: "Images/Home_Page_Dashed_Lines.png"
         width: 1020 * uiCtxt.scale //389
         height: 2340 * uiCtxt.scale //891
         sourceSize.width: 1020

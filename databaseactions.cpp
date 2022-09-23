@@ -13,6 +13,13 @@ DatabaseActions::DatabaseActions(QObject *parent)
 }
 
 
+
+// TODO - For uploading and retrieving images for user-enetered recipes, use the block storage/another storage service provided by Oracle free tier.
+//        Then, store a link/identifier/useful information for accessing the image in the "image" field in the database
+
+
+
+
 /**
  * @brief DatabaseActions::addDataHandler
  *        A temporary method to insert data into the database
