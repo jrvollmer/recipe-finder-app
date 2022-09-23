@@ -1,5 +1,5 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/recipe-finder-app">
         <file>main.qml</file>
         <file>HomePage.qml</file>
         <file>AddRecipe.qml</file>
