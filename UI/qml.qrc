@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/recipe-finder-app/UI">
+        <file>AddRecipe.qml</file>
+        <file>HomePage.qml</file>
+        <file>main.qml</file>
+        <file>SearchRecipes.qml</file>
+    </qresource>
+</RCC>

@@ -36,7 +36,7 @@ void DatabaseActions::addDataHandler(QString field1, int field2) {
 
     QUrl myurl;
     myurl.setScheme("https");
-    myurl.setHost("***REMOVED***");
+    myurl.setHost("***REMOVED***"); // TODO Put this (and other database info) in constants file that is ignored by Git
     myurl.setPath("/ords/admin/test-select/api/add-row-1");
     myurl.setQuery(querystr);
 

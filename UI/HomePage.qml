@@ -10,7 +10,19 @@ ApplicationWindow {
     visibility: "FullScreen"
     title: qsTr("Home Page")
 
-    function openAddRecipes() {
+
+    function openSearchRecipes() {
+        // Create SearchRecipes component and object
+        var searchRecipesComponent = Qt.createComponent("SearchRecipes.qml")
+        var searchRecipesWindow = searchRecipesComponent.createObject()
+
+        // Display SearchRecipes window
+        searchRecipesWindow.showFullScreen()
+        // Close current window (HomePage)
+        home_page.close()
+    }
+
+    function openAddRecipe() {
         // Create AddRecipe component and object
         var addRecipeComponent = Qt.createComponent("AddRecipe.qml")
         var addRecipeWindow = addRecipeComponent.createObject()
@@ -81,10 +93,10 @@ ApplicationWindow {
             font.pixelSize: 122
         }
 
-        TapHandler { // TODO
+        TapHandler {
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: console.log("Tapped Search Recipes")
-            onLongPressed: console.log("Long Pressed Search Recipes")
+            onTapped: openSearchRecipes()
+            onLongPressed: openSearchRecipes()
         }
     }
 
@@ -114,10 +126,10 @@ ApplicationWindow {
             font.pixelSize: 122
         }
 
-        TapHandler { // TODO
+        TapHandler {
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: openAddRecipes()// dbActions.addData("Name1", 2)//console.log("Tapped Add Recipes")
-            onLongPressed: console.log("Long Pressed Add Recipes")
+            onTapped: openAddRecipe()
+            onLongPressed: openAddRecipe()
         }
     }
 
@@ -126,8 +138,8 @@ ApplicationWindow {
         x: 30 * uiCtxt.scale
         y: 30 * uiCtxt.scale
         source: "Images/Home_Page_Dashed_Lines.png"
-        width: 1020 * uiCtxt.scale //389
-        height: 2340 * uiCtxt.scale //891
+        width: 1020 * uiCtxt.scale
+        height: 2340 * uiCtxt.scale
         sourceSize.width: 1020
         sourceSize.height: 2340
         fillMode: Image.PreserveAspectFit

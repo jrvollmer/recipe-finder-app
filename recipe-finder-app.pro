@@ -13,7 +13,8 @@ SOURCES += \
 #        Images/Home_Page_Dashed_Lines.png \
 #        Images/Home_Icon.png
 #resources.prefix = /$${TARGET}
-RESOURCES += res.qrc #resources
+RESOURCES += UI/qml.qrc \ #resources
+    UI/Images/images.qrc
 
 # Additional import path used to resolve QML modules in Qt Creator's code model
 QML_IMPORT_PATH =

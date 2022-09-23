@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/recipe-finder-app">
-        <file>main.qml</file>
-        <file>HomePage.qml</file>
-        <file>AddRecipe.qml</file>
-        <file>Images/Home_Icon.png</file>
-        <file>Images/Home_Page_Dashed_Lines.png</file>
-    </qresource>
-</RCC>

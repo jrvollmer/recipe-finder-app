@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
     rootContext->setContextProperty("dbActions", &dbActions);
     // Add scale property as a context property for the front end
     rootContext->setContextProperty("uiCtxt", &uiProps);
-    const QUrl url(u"qrc:/recipe-finder-app/main.qml"_qs);
+    const QUrl url(u"qrc:/recipe-finder-app/UI/main.qml"_qs);
 
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                      &app, [url](QObject *obj, const QUrl &objUrl) {
