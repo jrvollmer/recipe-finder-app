@@ -25,6 +25,10 @@ QML_DESIGNER_IMPORT_PATH =
 # Default rules for deployment.
 android: include(C:\Users\james\QtProjects\recipe-finder-app\android_openssl\openssl.pri)
 
+OTHER_FILES += \
+    android-sources/AndroidManifest.xml
+ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android-sources
+
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
