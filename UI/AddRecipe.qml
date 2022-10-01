@@ -308,6 +308,10 @@ ApplicationWindow {
                     Layout.minimumWidth: recipe_image_layout.width / 3
                     Layout.fillWidth: true
                     Layout.preferredHeight: recipe_image_input.height //add_recipe_page.typicalInputHeight
+                    radius: height / 2
+                    border.width: (2 * uiCtxt.scale < 1) ? 1 : (2 * uiCtxt.scale)
+                    border.color: "#443311"
+                    color: "#DDBBAA"
 
                     Text {
                         id: upload_image_txt
@@ -317,7 +321,7 @@ ApplicationWindow {
                         height: upload_image_button.height * 7 / 8 //160 * uiCtxt.scale
 
                         // TODO Use padding for top and bottom
-                        color: "#000000"
+                        color: "#664422"
                         font.bold: true
                         text: "Upload Image"
                         horizontalAlignment: Text.AlignHCenter
@@ -328,8 +332,8 @@ ApplicationWindow {
                     }
 
                     Image {
-                        x: -18 * uiCtxt.scale // TODO Might need to reference upload_image_button
-                        y: -18 * uiCtxt.scale // TODO Might need to reference upload_image_button
+                        x: -18 * uiCtxt.scale
+                        y: -18 * uiCtxt.scale
                         width: 35 * uiCtxt.scale
                         height: 35 * uiCtxt.scale
                         sourceSize.width: 35
@@ -352,8 +356,21 @@ ApplicationWindow {
                     // TODO Layout.minimumWidth: recipe_image_layout.width * 5 / 53
                     Layout.preferredWidth: recipe_image_input.height
                     Layout.preferredHeight: recipe_image_input.height //add_recipe_page.typicalInputHeight
+                    radius: height / 4
+                    border.width: (2 * uiCtxt.scale < 1) ? 1 : (2 * uiCtxt.scale)
+                    border.color: "#443311"
+                    color: "#FFDCCB"
 
-                    // TODO Add image here
+                    Image {
+                        anchors.centerIn: gallery_button
+                        width: recipe_image_input.height * 0.75
+                        height: recipe_image_input.height * 0.75
+                        sourceSize.width: 75
+                        sourceSize.height: 75
+                        fillMode: Image.PreserveAspectFit
+
+                        source: "Images/Gallery_Icon.png"
+                    }
 
                     TapHandler {
                         acceptedDevices: PointerDevice.TouchScreen
@@ -368,8 +385,22 @@ ApplicationWindow {
                     // TODO Layout.minimumWidth: recipe_image_layout.width * 5 / 53
                     Layout.preferredWidth: recipe_image_input.height
                     Layout.preferredHeight: recipe_image_input.height //add_recipe_page.typicalInputHeight
+                    radius: height / 4
+                    border.width: (2 * uiCtxt.scale < 1) ? 1 : (2 * uiCtxt.scale)
+                    border.color: "#443311"
+                    color: "#FFDCCB"
 
-                    // TODO Add image here
+
+                    Image {
+                        anchors.centerIn: camera_button
+                        width: recipe_image_input.height * 0.75
+                        height: recipe_image_input.height * 0.54
+                        sourceSize.width: 75
+                        sourceSize.height: 54
+                        fillMode: Image.PreserveAspectFit
+
+                        source: "Images/Camera_Icon.png"
+                    }
 
                     TapHandler {
                         acceptedDevices: PointerDevice.TouchScreen
@@ -386,6 +417,10 @@ ApplicationWindow {
             //Layout.minimumWidth: input_layout.width
             Layout.fillWidth: true
             Layout.minimumHeight: add_recipe_page.typicalInputHeight
+            radius: height / 2
+            border.width: (3 * uiCtxt.scale < 1) ? 1 : (3 * uiCtxt.scale)
+            border.color: "#886655"
+            color: "#BB9988"
 
             Text {
                 id: add_recipe_txt
@@ -395,8 +430,8 @@ ApplicationWindow {
                 height: add_recipe_button.height * 7 / 8 //160 * uiCtxt.scale
 
                 // TODO Use padding for top and bottom
-                color: "#000000"
-                font.bold: true
+                color: "#775544"
+                font.weight: Font.Black
                 text: "Add Recipe"
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

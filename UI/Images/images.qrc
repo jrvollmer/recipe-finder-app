@@ -4,5 +4,7 @@
         <file>Home_Page_Dashed_Lines.png</file>
         <file>Required Symbol.png</file>
         <file>App_Icon.png</file>
+        <file>Camera_Icon.png</file>
+        <file>Gallery_Icon.png</file>
     </qresource>
 </RCC>
