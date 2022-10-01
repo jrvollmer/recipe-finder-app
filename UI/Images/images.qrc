@@ -2,5 +2,6 @@
     <qresource prefix="/recipe-finder-app/UI/Images">
         <file>Home_Icon.png</file>
         <file>Home_Page_Dashed_Lines.png</file>
+        <file>Required Symbol.png</file>
     </qresource>
 </RCC>

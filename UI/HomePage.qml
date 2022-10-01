@@ -11,24 +11,13 @@ ApplicationWindow {
     title: qsTr("Home Page")
 
 
-    function openSearchRecipes() {
-        // Create SearchRecipes component and object
-        var searchRecipesComponent = Qt.createComponent("SearchRecipes.qml")
-        var searchRecipesWindow = searchRecipesComponent.createObject()
+    function changePage(pageName) {
+        // Create new page component and object corresponding to the passed pageName
+        var newPageComponent = Qt.createComponent(pageName)
+        var newPageWindow = newPageComponent.createObject()
 
-        // Display SearchRecipes window
-        searchRecipesWindow.showFullScreen()
-        // Close current window (HomePage)
-        home_page.close()
-    }
-
-    function openAddRecipe() {
-        // Create AddRecipe component and object
-        var addRecipeComponent = Qt.createComponent("AddRecipe.qml")
-        var addRecipeWindow = addRecipeComponent.createObject()
-
-        // Display AddRecipe window
-        addRecipeWindow.showFullScreen()
+        // Display new window
+        newPageWindow.showFullScreen()
         // Close current window (HomePage)
         home_page.close()
     }
@@ -37,7 +26,7 @@ ApplicationWindow {
     Text {
         id: welcome_txt
         x: 308 * uiCtxt.scale
-        y: 462 * uiCtxt.scale
+        y: 387 * uiCtxt.scale
         width: 463 * uiCtxt.scale
         height: 150 * uiCtxt.scale
         color: "#ffffff"
@@ -53,7 +42,7 @@ ApplicationWindow {
     Text {
         id: title_txt
         x: 85 * uiCtxt.scale
-        y: 573 * uiCtxt.scale
+        y: 498 * uiCtxt.scale
         width: 910 * uiCtxt.scale
         height: 200 * uiCtxt.scale
         color: "#ffffff"
@@ -69,7 +58,7 @@ ApplicationWindow {
     Rectangle {
         id: search_recipes_rect
         x: 55 * uiCtxt.scale
-        y: 1000 * uiCtxt.scale
+        y: 900 * uiCtxt.scale
         width: 970 * uiCtxt.scale
         height: 320 * uiCtxt.scale
         color: "#443322"
@@ -95,15 +84,15 @@ ApplicationWindow {
 
         TapHandler {
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: openSearchRecipes()
-            onLongPressed: openSearchRecipes()
+            onTapped: changePage("SearchRecipes.qml")
+            onLongPressed: changePage("SearchRecipes.qml")
         }
     }
 
     Rectangle {
         id: add_recipes_rect
         x: 55 * uiCtxt.scale
-        y: 1500 * uiCtxt.scale
+        y: 1350 * uiCtxt.scale
         width: 970 * uiCtxt.scale
         height: 320 * uiCtxt.scale
         color: "#443322"
@@ -128,8 +117,41 @@ ApplicationWindow {
 
         TapHandler {
             acceptedDevices: PointerDevice.TouchScreen
-            onTapped: openAddRecipe()
-            onLongPressed: openAddRecipe()
+            onTapped: changePage("AddRecipe.qml")
+            onLongPressed: changePage("AddRecipe.qml")
+        }
+    }
+
+    Rectangle {
+        id: account_rect
+        x: 55 * uiCtxt.scale
+        y: 1800 * uiCtxt.scale
+        width: 970 * uiCtxt.scale
+        height: 320 * uiCtxt.scale
+        color: "#443322"
+        radius: 125 * uiCtxt.scale
+        border.color: "#221100"
+        border.width: 10 * uiCtxt.scale
+
+        Text {
+            id: account_txt
+            anchors.centerIn: parent
+            width: 398 * uiCtxt.scale
+            height: 160 * uiCtxt.scale
+            color: "#ffffff"
+            font.weight: Font.ExtraBold
+            text: qsTr("Account")
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            fontSizeMode: Text.Fit
+            minimumPixelSize: 10
+            font.pixelSize: 122
+        }
+
+        TapHandler {
+            acceptedDevices: PointerDevice.TouchScreen
+            onTapped: changePage("Account.qml")
+            onLongPressed: changePage("Account.qml")
         }
     }
 

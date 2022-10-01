@@ -4,5 +4,7 @@
         <file>HomePage.qml</file>
         <file>main.qml</file>
         <file>SearchRecipes.qml</file>
+        <file>Account.qml</file>
+        <file>CustomTextField.qml</file>
     </qresource>
 </RCC>
