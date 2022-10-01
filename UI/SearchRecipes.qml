@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 
 ApplicationWindow {
     id: search_recipes_page
-    width: 1080 * uiCtxt.scale
-    height: 2400 * uiCtxt.scale
+    width: uiCtxt.devWidth//1080 * uiCtxt.scale
+    height: uiCtxt.devHeight//2400 * uiCtxt.scale
     color: "#EFDFCF"
     visible: true
     visibility: "FullScreen"

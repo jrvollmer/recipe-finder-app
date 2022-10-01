@@ -14,14 +14,16 @@ int main(int argc, char *argv[])
         argv[2] = (char*)"android:dpiawareness=0";
 */
 
+
+    QGuiApplication app(argc, argv);
+
     // Set up a scale context variable to be used in the front end
     QQmlPropertyMap uiProps;
     uiProps.insert("scale", QVariant(1/2.625));
+    uiProps.insert("devWidth", app.primaryScreen()->geometry().width());
+    uiProps.insert("devHeight", app.primaryScreen()->geometry().height());
     // Declare a DatabaseActions instance to use as a context property for the front end
     DatabaseActions dbActions;
-
-
-    QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
     QQmlContext * rootContext = engine.rootContext();

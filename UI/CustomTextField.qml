@@ -8,8 +8,8 @@ TextField {
     // TODO property to use "fit text" or "pixel size". Then, use this in their corresponding properties to set either fit text or use a determined pixel size
     // TODO Test fit text with padding and see if it works. If not, use a text box for sizing instead of padding. Then, fit text will work.
 
-    width: 350 * uiCtxt.scale
-    height: 100 * uiCtxt.scale
+    // TODO width: 350 * uiCtxt.scale
+    // TODO height: 100 * uiCtxt.scale
 
     leftPadding: 25 * uiCtxt.scale
     rightPadding: 25 * uiCtxt.scale
