@@ -321,7 +321,7 @@ ApplicationWindow {
                         height: upload_image_button.height * 7 / 8 //160 * uiCtxt.scale
 
                         // TODO Use padding for top and bottom
-                        color: "#664422"
+                        color: "#775544"
                         font.bold: true
                         text: "Upload Image"
                         horizontalAlignment: Text.AlignHCenter
@@ -430,7 +430,7 @@ ApplicationWindow {
                 height: add_recipe_button.height * 7 / 8 //160 * uiCtxt.scale
 
                 // TODO Use padding for top and bottom
-                color: "#775544"
+                color: "#664433"
                 font.weight: Font.Black
                 text: "Add Recipe"
                 horizontalAlignment: Text.AlignHCenter
