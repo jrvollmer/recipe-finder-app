@@ -15,6 +15,7 @@ TextField {
     //height: 100 * uiCtxt.scale
     focus: false
     leftPadding: 25 * uiCtxt.scale
+    rightPadding: 25 * uiCtxt.scale
     bottomPadding: 0
     topPadding: 0
     selectByMouse: true
