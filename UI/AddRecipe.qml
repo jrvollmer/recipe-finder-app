@@ -25,11 +25,24 @@ ApplicationWindow {
     }
 
     function addToDatabase() {
+        // Check that required fields have been populated
         if((recipe_name_input.text != "") && (recipe_steps_input.text != "") && (recipe_yield_input.text != "")) { // TODO Add ingredients and image when they are implemented
-            console.log("----------------------------------------------------------------------------- INSERTED " + recipe_name_input.text + " INTO DATABASE --------------------------------------------------------------------"); // TODO Remove
+            // TODO console.log("----------------------------------------------------------------------------- INSERTED " + recipe_name_input.text + " INTO DATABASE --------------------------------------------------------------------"); // TODO Remove
 
+            // Insert recipe entry into database
             dbActions.addData(recipe_name_input.text, recipe_description_input.text, recipe_ingredient_text_input.text, recipe_steps_input.text, recipe_prep_time_input.text, recipe_active_time_input.text, recipe_passive_time_input.text, recipe_yield_input.text);
+
+            // Clear text fields
+            recipe_name_input.clear();
+            recipe_description_input.clear();
+            recipe_ingredient_text_input.clear();
+            recipe_steps_input.clear();
+            recipe_prep_time_input.clear();
+            recipe_active_time_input.clear();
+            recipe_passive_time_input.clear();
+            recipe_yield_input.clear();
         }
+        // TODO Add a popup or something to notify the user of any missing required fields
     }
 
     Image {
