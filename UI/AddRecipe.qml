@@ -25,10 +25,10 @@ ApplicationWindow {
     }
 
     function addToDatabase() {
-        console.log(add_recipe_page.typicalInputHeight);
-        if(recipe_name_input.text != "") {
+        if((recipe_name_input.text != "") && (recipe_steps_input.text != "") && (recipe_yield_input.text != "")) { // TODO Add ingredients and image when they are implemented
             console.log("----------------------------------------------------------------------------- INSERTED " + recipe_name_input.text + " INTO DATABASE --------------------------------------------------------------------"); // TODO Remove
-            dbActions.addData(recipe_name_input.text, 2);
+
+            dbActions.addData(recipe_name_input.text, recipe_description_input.text, recipe_ingredient_text_input.text, recipe_steps_input.text, recipe_prep_time_input.text, recipe_active_time_input.text, recipe_passive_time_input.text, recipe_yield_input.text);
         }
     }
 

@@ -16,9 +16,9 @@ class DatabaseActions : public QObject
 public:
     explicit DatabaseActions(QObject *parent = nullptr);
 public slots:
-    void addDataHandler(QString field1, int field2);
+    void addDataHandler(QString name, QString description, QString ingredients, QString steps, QString prep, QString active, QString passive, QString yield);
 signals:
-    void addData(QString field1, int field2);
+    void addData(QString name, QString description, QString ingredients, QString steps, QString prep, QString active, QString passive, QString yield);
 };
 
 #endif // DATABASEACTIONS_H
