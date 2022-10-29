@@ -10,6 +10,7 @@ DatabaseActions::DatabaseActions(QObject *parent)
 {
     // Connect addData() signal to the addDataHandler() slot
     connect(this, &DatabaseActions::addData, this, &DatabaseActions::addDataHandler);
+    connect(this, &DatabaseActions::getGenData, this, &DatabaseActions::getGenDataHandler);
 }
 
 
@@ -54,4 +55,32 @@ void DatabaseActions::addDataHandler(QString name, QString description, QString 
     restclient = new QNetworkAccessManager(); //constructor
     QNetworkReply *reply = restclient->get(request);
     qDebug() << reply->readAll();
+}
+
+
+void DatabaseActions::getGenDataHandler(QString imagePath) {
+    //QUrlQuery querystr;
+    //querystr.addQueryItem("path", imagePath);
+
+    qDebug() << "--------------------------_-_____-------------------------------------------------------------------------------------------------------------";
+
+    QUrl myurl;
+    myurl.setScheme("http");
+    myurl.setHost("hostname"); // TODO Put this (and other database info) in constants file that is ignored by Git
+    myurl.setPort(9999);
+    myurl.setPath("/api");
+    //myurl.setQuery(querystr);
+
+    QNetworkRequest request;
+    request.setUrl(myurl);
+    //request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    QNetworkAccessManager *restclient; //in class
+    restclient = new QNetworkAccessManager(); //constructor
+    responseReader = restclient->get(request);
+    connect(this->responseReader, &QNetworkReply::readyRead, this, &DatabaseActions::readResponse);
+}
+
+void DatabaseActions::readResponse() {
+    qDebug() << "From VPS: " << responseReader->readAll();
 }

@@ -17,8 +17,13 @@ public:
     explicit DatabaseActions(QObject *parent = nullptr);
 public slots:
     void addDataHandler(QString name, QString description, QString ingredients, QString steps, QString prep, QString active, QString passive, QString yield);
+    void getGenDataHandler(QString imagePath);
+    void readResponse();
 signals:
     void addData(QString name, QString description, QString ingredients, QString steps, QString prep, QString active, QString passive, QString yield);
+    void getGenData(QString imagePath);
+private:
+    QNetworkReply* responseReader;
 };
 
 #endif // DATABASEACTIONS_H
