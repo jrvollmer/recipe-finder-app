@@ -39,7 +39,18 @@ ApplicationWindow {
         }
     }
 
-    Rectangle { // TODO
+    /* TODO
+    Image {
+        anchors.centerIn: parent
+        source: "URL TO FETCH THE IMAGE FROM THE VPS (http://domain:port/route)"
+        width: 0.5 * uiCtxt.scale * 1112
+        height: 0.5 * uiCtxt.scale * 545
+        sourceSize.width: 1112
+        sourceSize.height: 545
+
+    }*/
+
+    /*Rectangle { // TODO
         anchors.centerIn: parent
         width: 970 * uiCtxt.scale
         height: 320 * uiCtxt.scale
@@ -65,5 +76,5 @@ ApplicationWindow {
             onTapped: dbActions.addData("Name1", 2) // TODO Inserts random data into database
             onLongPressed: dbActions.addData("Name1", 2) // TODO Inserts random data into database
         }*/
-    }
+    //}
 }

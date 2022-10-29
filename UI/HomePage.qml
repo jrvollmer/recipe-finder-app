@@ -172,7 +172,7 @@ ApplicationWindow {
 
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
-                onTapped: dbActions.getGenData("path")//changePage("Account.qml")
+                onTapped: changePage("Account.qml")//dbActions.getGenData("path")//changePage("Account.qml")
                 onLongPressed: changePage("Account.qml")
             }
         }
