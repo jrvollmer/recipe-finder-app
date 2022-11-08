@@ -11,6 +11,8 @@ DatabaseActions::DatabaseActions(QObject *parent)
     // Connect addData() signal to the addDataHandler() slot
     connect(this, &DatabaseActions::addData, this, &DatabaseActions::addDataHandler);
     connect(this, &DatabaseActions::getGenData, this, &DatabaseActions::getGenDataHandler);
+    connect(this, &DatabaseActions::sendImage, this, &DatabaseActions::sendImageHandler);
+    connect(this, &DatabaseActions::getImage, this, &DatabaseActions::getImageHandler);
 }
 
 
@@ -85,4 +87,66 @@ void DatabaseActions::getGenDataHandler(QString imagePath) {
 
 void DatabaseActions::readResponse() {
     qDebug() << "From VPS: " << responseReader->readAll();
+}
+
+void DatabaseActions::sendImageHandler(QString toSend) {
+
+    qDebug() << "GO ------------------------------------------------------------";
+
+    QString filepath = toSend;
+
+    QString filename = filepath.split("/").at(filepath.split("/").length() - 1);
+    QString extension = filename.split(".").at(1);
+    filename = filename.split(".").at(0);
+
+    QUrl myurl;
+    myurl.setScheme("http");
+    myurl.setHost("***REMOVED***");//"hostname"); // TODO Put this (and other database info) in constants file that is ignored by Git
+    myurl.setPort(3000);//9999);
+    myurl.setPath("/upload-image");
+
+    QNetworkRequest request;
+    request.setUrl(myurl);
+    request.setHeader(QNetworkRequest::ContentTypeHeader, QVariant("image/" + extension));
+    request.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("attachment; filename=\"" + filename + "\""));
+
+    qDebug() << "Good so far";
+
+    // TODO
+    fileLoc = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    qDebug() << fileLoc;
+    emit fileLocChanged();
+
+    // TODO imagePart.setHeader(QNetworkRequest::ContentDispositionHeader, QVariant("form-data; name=\"image\""));
+    QFile *file = new QFile(filepath);
+    file->open(QIODevice::ReadOnly);
+
+    qDebug() << "Opened file";
+
+    QNetworkAccessManager *restclient; //in class
+    restclient = new QNetworkAccessManager(); //constructor
+
+    file->setParent(restclient); // Cannot delete the file now, so delete it with the restclient
+
+    responseReader = restclient->post(request, file->readAll());
+
+    qDebug() << "Sent file";
+}
+
+// TODO Not tested (probably not working
+void DatabaseActions::getImageHandler(QString iName, QImage img) {
+    QBuffer buffer;
+    buffer.open(QIODevice::WriteOnly);
+    img.save(&buffer, "PNG");
+    buffer.close();
+
+    QString path = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation) + iName;
+    QFile file( path  );
+    if( file.open( QIODevice::WriteOnly ) )
+    {
+        file.write( buffer.buffer() );
+        file.close();
+    }
+    if( file.error() != QFileDevice::NoError )
+         qDebug() << QString("Error writing file '%1':").arg(path) <<  file.errorString();
 }

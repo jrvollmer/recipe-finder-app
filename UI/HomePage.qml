@@ -1,6 +1,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtMultimedia
 
 ApplicationWindow {
     id: home_page
@@ -10,6 +11,70 @@ ApplicationWindow {
     visible: true
     visibility: "FullScreen"
     title: qsTr("Home Page")
+
+    property var imageCap: captureSession.imageCapture.preview
+
+
+    onImageCapChanged: {
+        console.log(imageCap)
+
+        //console.log("Printing path ----------------------------------------------------------------")
+        //console.log(imageCap)
+        //console.log("------------------------------------------------------------------------------")
+
+        //dbActions.sendImage(imageCap);
+    }
+
+    // TODO
+
+    Text {
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.bottom: title_txt.top
+
+        text: dbActions.fileLoc //TODO
+    }
+
+    CaptureSession {
+        id: captureSession
+        videoOutput: output
+        camera: Camera {}
+        imageCapture: ImageCapture {
+            onImageSaved: function (id, path) {
+                console.log("Printing path ----------------------------------------------------------------")
+                console.log(path)
+                console.log("------------------------------------------------------------------------------")
+
+                // Send image to server
+                dbActions.sendImage(path);
+            }
+        }
+    }
+
+    VideoOutput {
+        id: output
+        anchors.fill: parent
+    }
+
+    Button {
+        id: shotButton
+
+        width: uiCtxt.devWidth / 5 //parent.buttonWidth
+        height: uiCtxt.devHeight / 5 //parent.buttonHeight
+
+        text: qsTr("Take Photo")
+        onClicked: {
+            //captureSession.camera.start() // TODO This is what was missing to start the camera
+            captureSession.imageCapture.captureToFile("/storage/emulated/0/Android/data/org.qtproject.example.recipe_finder_app/files/Pictures/newImg")
+            //captureSession.camera.stop()
+        }
+    }
+
+    /*Image {
+        id: photoPreview
+        source: new QImage(captureSession.imageCapture.preview)
+    }*/
+
+    // TODO
 
 
     function changePage(pageName) {
@@ -172,11 +237,41 @@ ApplicationWindow {
 
             TapHandler {
                 acceptedDevices: PointerDevice.TouchScreen
-                onTapped: changePage("Account.qml")//dbActions.getGenData("path")//changePage("Account.qml")
+                onTapped: captureSession.camera.start() // TODO This is what was missing to start the camera //dbActions.getGenData("path")//changePage("Account.qml")
                 onLongPressed: changePage("Account.qml")
             }
         }
     }
+
+
+    /* TODO
+    CaptureSession {
+        imageCapture: ImageCapture {
+            id: imageCapture
+        }
+        camera: Camera {
+            id: camera
+        }
+    }*/
+
+    /* TODO
+    VideoOutput {
+        id: videoOutput
+        anchors.fill: parent
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: imageCapture.capture()
+        }
+    }*/
+
+    /* TODO
+    Image {
+        id: photoPreview
+        x: 70 * uiCtxt.scale
+        y: 70 * uiCtxt.scale
+        source: imageCapture.preview
+    }*/
 
     Image {
         id: dashed_lines
