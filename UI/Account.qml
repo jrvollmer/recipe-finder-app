@@ -42,7 +42,7 @@ ApplicationWindow {
     /* TODO
     Image {
         anchors.centerIn: parent
-        source: "URL TO FETCH THE IMAGE FROM THE VPS (http://domain:port/route)"
+        source: "URL TO FETCH THE IMAGE FROM THE VPS (scheme://domain:port/route)"
         width: 0.5 * uiCtxt.scale * 1112
         height: 0.5 * uiCtxt.scale * 545
         sourceSize.width: 1112

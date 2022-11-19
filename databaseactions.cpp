@@ -46,9 +46,9 @@ void DatabaseActions::addDataHandler(QString name, QString description, QString 
     querystr.addQueryItem("yield", yield);
 
     QUrl myurl;
-    myurl.setScheme("https");
-    myurl.setHost("***REMOVED***"); // TODO Put this (and other database info) in constants file that is ignored by Git
-    myurl.setPath("***REMOVED***");
+    myurl.setScheme(DB_SCHEME);
+    myurl.setHost(HOST);
+    myurl.setPath(INSERT_RECIPE_PATH);
     myurl.setQuery(querystr);
 
     QNetworkRequest request;
@@ -69,10 +69,10 @@ void DatabaseActions::getGenDataHandler(QString imagePath) {
     qDebug() << "--------------------------_-_____-------------------------------------------------------------------------------------------------------------";
 
     QUrl myurl;
-    myurl.setScheme("http");
-    myurl.setHost("hostname"); // TODO Put this (and other database info) in constants file that is ignored by Git
-    myurl.setPort(9999);
-    myurl.setPath("/api");
+    myurl.setScheme(VPS_SCHEME);
+    myurl.setHost(HOST);
+    myurl.setPort(PORT);
+    myurl.setPath(GENERIC_REQUEST_PATH);
     //myurl.setQuery(querystr);
 
     QNetworkRequest request;
@@ -100,10 +100,10 @@ void DatabaseActions::sendImageHandler(QString toSend) {
     filename = filename.split(".").at(0);
 
     QUrl myurl;
-    myurl.setScheme("http");
-    myurl.setHost("***REMOVED***");//"hostname"); // TODO Put this (and other database info) in constants file that is ignored by Git
-    myurl.setPort(3000);//9999);
-    myurl.setPath("/upload-image");
+    myurl.setScheme(VPS_SCHEME);
+    myurl.setHost(HOST);
+    myurl.setPort(PORT);
+    myurl.setPath(UPLOAD_IMAGE_PATH);
 
     QNetworkRequest request;
     request.setUrl(myurl);
@@ -133,7 +133,7 @@ void DatabaseActions::sendImageHandler(QString toSend) {
     qDebug() << "Sent file";
 }
 
-// TODO Not tested (probably not working
+// TODO Not tested (probably not working)
 void DatabaseActions::getImageHandler(QString iName, QImage img) {
     QBuffer buffer;
     buffer.open(QIODevice::WriteOnly);

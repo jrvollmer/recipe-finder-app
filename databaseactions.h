@@ -3,6 +3,9 @@
 
 #include <QObject>
 
+// Database information
+#include "dbinfo.h"
+
 // TODO For database actions
 #include <QImage>
 #include <QByteArray>

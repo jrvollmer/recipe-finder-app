@@ -34,7 +34,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    databaseactions.h
+    databaseactions.h \
+    dbinfo.h
 
 DISTFILES += \
     AddRecipe.qml \
