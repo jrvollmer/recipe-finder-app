@@ -47,7 +47,7 @@ void DatabaseActions::addDataHandler(QString name, QString description, QString 
 
     QUrl myurl;
     myurl.setScheme(DB_SCHEME);
-    myurl.setHost(HOST);
+    myurl.setHost(DB_HOST);
     myurl.setPath(INSERT_RECIPE_PATH);
     myurl.setQuery(querystr);
 
@@ -70,7 +70,7 @@ void DatabaseActions::getGenDataHandler(QString imagePath) {
 
     QUrl myurl;
     myurl.setScheme(VPS_SCHEME);
-    myurl.setHost(HOST);
+    myurl.setHost(VPS_HOST);
     myurl.setPort(PORT);
     myurl.setPath(GENERIC_REQUEST_PATH);
     //myurl.setQuery(querystr);
@@ -101,7 +101,7 @@ void DatabaseActions::sendImageHandler(QString toSend) {
 
     QUrl myurl;
     myurl.setScheme(VPS_SCHEME);
-    myurl.setHost(HOST);
+    myurl.setHost(VPS_HOST);
     myurl.setPort(PORT);
     myurl.setPath(UPLOAD_IMAGE_PATH);
 
