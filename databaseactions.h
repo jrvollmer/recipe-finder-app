@@ -3,8 +3,8 @@
 
 #include <QObject>
 
-// Database information
-#include "dbinfo.h"
+// Database/Server information
+#include "my_info.h"
 
 // TODO For database actions
 #include <QImage>

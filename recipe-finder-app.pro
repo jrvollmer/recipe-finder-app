@@ -35,7 +35,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     databaseactions.h \
-    dbinfo.h
+    my_info.h
 
 DISTFILES += \
     AddRecipe.qml \
